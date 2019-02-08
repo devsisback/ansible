@@ -1,0 +1,18 @@
+---
+- hosts: grupo1
+  tasks:
+  - name: Instalar Apache
+    yum: 
+      name: apache2
+      state: latest
+  - name: Arrancar Servicio
+    service: 
+      name: apache2
+      state: started
+      enabled: true
+  - name: fact
+    copy:
+        content: "El nombre de del servidor es {{ ansible_hostname }}  
+                 y su ip es {{ ansible_default_ipv4.address }}"
+        dest: /var/www/html/index.html
+...
