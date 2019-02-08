@@ -1,0 +1,22 @@
+---
+- hosts: node-one:node-two
+  tasks:
+     - name: Instalar apache
+       yum: name=apache2 state=latest
+     - name: Instalar samba
+       yum: 
+         name: samba 
+         state: latest
+     - name: Arrancar servicios
+       service: 
+         name: "{{ item }}" 
+         enabled: true
+         state: started
+       with_items:
+         - apache2
+         - samba
+     - name: Copiando contenido
+       copy: 
+         content: "Bienvenido a mi web"
+         dest: /var/www/html/index.html	
+...  
