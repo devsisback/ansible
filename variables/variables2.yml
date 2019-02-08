@@ -1,0 +1,21 @@
+---
+- hosts: node-two
+  vars_files:
+    - vars2.yml
+  tasks:
+    - name: Instalar {{ db_pkg }}
+      yum:
+        name: "{{ db_pkg }}"
+        state: latest
+    - name: Iniciando {{ db_srv }}
+      service:
+        name: "{{ db_srv }}" 
+        state: started 
+        enabled: true
+
+
+#---
+#db_pkg: mariadb-server
+#db_srv: mariadb
+#...
+...

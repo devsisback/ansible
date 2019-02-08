@@ -1,0 +1,5 @@
+---
+db_pkg: mariadb-server
+db_srv: mysql
+#db_srv: mariadb . En ubuntu 14, el servicio de mariadb se llama mysql
+

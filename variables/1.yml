@@ -1,0 +1,13 @@
+---
+- hosts: grupo1
+  tasks:
+    - name: instalar {{ pkg1 }}
+      apt: 
+        name: "{{ pkg1 }}"
+        state: latest 
+    - name: Arrancar Servicio  {{ srv1 }}
+      service: 
+        name: "{{ pkg1 }}"
+        state: started
+        enabled: true
+...
